@@ -31,7 +31,7 @@ services:
     build:
       context: ./microserice-reservation-spring
     ports:
-      - "8088:8088"
+      - "6662:6662"
     depends_on:
       - mysql-reservation
     environment:
@@ -51,13 +51,13 @@ services:
     build:
       context: ./microservice-event-spring
     ports:
-      - "8089:8089"
+      - "6661:6661"
     depends_on:
       - mysql-event
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-event:3306/service-event
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD:
+      SPRING_DATASOURCE_PASSWORD: root
     healthcheck:
       test: "/usr/bin/mysql --user=root --password= --execute \"SHOW DATABASES;\""
       interval: 5s
